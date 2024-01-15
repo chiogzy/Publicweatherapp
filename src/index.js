@@ -9,8 +9,6 @@ function updateWeather(response) {
   let date = new Date(response.data.time * 1000);
   let iconElement = document.querySelector("#icon");
 
-  console.log(response.data);
-
   cityElement.innerHTML = response.data.city;
   timeElement.innerHTML = formatDate(date);
   descriptionElement.innerHTML = response.data.condition.description;
@@ -57,8 +55,35 @@ function search(event) {
 
   searchCity(searchInput.value);
 }
+function displayForecst() {
+  let days = ["Wed", "Thur", "Fri", "Sat", "Sun"];
+  let forecastHtml = "";
+
+  days.forEach(function (day) {
+    forecastHtml =
+      forecastHtml +
+      `
+<div class="weather-forecast-day">
+  <div class="weather-forecast-date">${day}</div>
+          <img
+            src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/clear-sky-day.png"
+            width="42px"
+            class="weather-forecast-icon"
+          />
+          <div class="weather-forecast-temperature">
+            <span class="weather-forecast-temperature-max"> 18°</span>
+            <span class="weather-forecast-temperature-min">12°</span>
+          </div>
+          </div>
+          `;
+  });
+
+  let forecastElement = document.querySelector("#forecast");
+  forecastElement.innerHTML = forecastHtml;
+}
 
 let searchFormElement = document.querySelector("#search-form");
 searchFormElement.addEventListener("submit", search);
 
 searchCity("Paris");
+displayForecst();

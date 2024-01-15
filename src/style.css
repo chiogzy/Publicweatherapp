@@ -85,23 +85,22 @@ main {
   color: #f65282;
 }
 
-.weather-forcast {
+.weather-forecast {
   display: flex;
   margin-top: 20px;
-  text-align: center;
-  color: 0000;
+  justify-content: space-around;
 }
 
-.weather-forcast-date {
+.weather-forecast-date {
   font-size: 16px;
   opacity: 0.5;
 }
 
-.weather-forcast-temperature {
+.weather-forecast-temperature {
   font-size: 13px;
 }
 
-.weather-forcast-temperature-min {
+.weather-forecast-temperature-min {
   opacity: 0.5;
 }
 
